@@ -14,23 +14,6 @@ export default new Router({
       name: 'Home',
       component: Home
     },
-    // {
-    //   path: '/meetups',
-    //   name: 'Meetups',
-    //   component: Meetups
-    // },
-    // {
-    //   path: '/meetup/new',
-    //   name: 'CreateMeetup',
-    //   component: CreateMeetup,
-    //   beforeEnter: AuthGuard
-    // },
-    // {
-    //   path: '/meetups/:id',
-    //   name: 'Meetup',
-    //   props: true,
-    //   component: Meetup
-    // },
     {
       path: '/skills',
       name: 'Skills',

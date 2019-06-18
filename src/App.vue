@@ -32,7 +32,7 @@
         linesColor="#002154"
         :particlesNumber="80"
         shapeType="circle"
-        :particleSize="5"
+        :particleSize="4"
         :linesWidth="2"
         :lineLinked="true"
         :lineOpacity="0.4"
