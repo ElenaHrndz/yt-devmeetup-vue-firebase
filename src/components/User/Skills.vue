@@ -1,5 +1,4 @@
 <template>
-  <div>
     <div class="skills">
       <h2>My Skills.</h2>
       <div >
@@ -45,12 +44,11 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <style scoped>
   img{
-    width: 12%;
+    width: 10%;
     margin: 1%;
   }
 </style>

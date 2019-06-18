@@ -1,48 +1,63 @@
 <template>
-<v-app>
-  <v-navigation-drawer temporary v-model="sideNav">
-    <v-list>
-      <v-list-tile v-for="item in menuItems" :key="item.title" :to="item.link">
-        <v-list-tile-action>
-          <v-icon>{{ item.icon }}</v-icon>
-        </v-list-tile-action>
-        <v-list-tile-content>{{ item.title }}</v-list-tile-content>
-      </v-list-tile>
-    </v-list>
-  </v-navigation-drawer>
-  <v-toolbar dark class="primary">
-    <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up "></v-toolbar-side-icon>
-    <v-toolbar-title>
-      <router-link to="/" tag="span" style="cursor: pointer">Profile</router-link>
-    </v-toolbar-title>
-    <v-spacer></v-spacer>
-    <v-toolbar-items class="hidden-xs-only">
-      <v-btn flat v-for="item in menuItems" :key="item.title" :to="item.link">
-        <v-icon left dark>{{ item.icon }}</v-icon>
-        {{ item.title }}
-      </v-btn>
-    </v-toolbar-items>
-  </v-toolbar>
-  <main>
-    <router-view></router-view>
-  </main>
+  <div id="app">
+    <v-navigation-drawer temporary v-model="sideNav">
+      <v-list>
+        <v-list-tile v-for="item in menuItems" :key="item.title" :to="item.link">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>{{ item.title }}</v-list-tile-content>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar dark class="primary">
+      <v-toolbar-side-icon @click.stop="sideNav = !sideNav" class="hidden-sm-and-up "></v-toolbar-side-icon>
+      <v-toolbar-title>
+        <router-link to="/" tag="span" style="cursor: pointer">Profile</router-link>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-items class="hidden-xs-only">
+        <v-btn flat v-for="item in menuItems" :key="item.title" :to="item.link">
+          <v-icon left dark>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
 
-  <footer>
-    <div class="bottom-container">
-      <ul>
-        <li class="footer-links"><a class="footer-link" href="https://www.linkedin.com/in/maría-elena-hernández-payán-93a56915b">LinkedIn</a> / </li>
-        <li class="footer-links"><a class="footer-link" href="https://github.com/ElenaHrndz?tab=repositories/">GitHub</a> / </li>
-        <li class="footer-links"><a class="footer-link" href="https://www.instagram.com/maleny_art/?hl=es-la">Instagram</a> / </li>
-        <li class="footer-links"><a class="footer-link" href="mailto:hrndzelena@gmail.com">CONTACT ME</a></li>
-      </ul>
-      <p class="footer"> © 2019 Elena Hernández. All rights reserved.</p>
+    <div class="wrap-banner">
+      <router-view class="main"></router-view>
+      <vue-particles class="particles"
+        color="#002154"
+        :particleOpacity="0.7"
+        linesColor="#002154"
+        :particlesNumber="80"
+        shapeType="circle"
+        :particleSize="5"
+        :linesWidth="2"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+      >
+      </vue-particles>
     </div>
-  </footer>
-</v-app>
-</template>
+
+    <foot></foot>
+  </div>
+ </template>
 
 <script>
+import Foot from './components/Foot'
+
 export default {
+  name: 'app',
+  components: {
+    Foot
+  },
   data () {
     return {
       sideNav: false
@@ -79,6 +94,33 @@ export default {
 
 <style>
 @import "https://fonts.googleapis.com/css?family=Merienda|Signika+Negative|Ubuntu";
+
+.wrap-banner {
+    position: relative;
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.main{
+  display: block;
+  z-index: 999;
+}
+
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 a {
   text-decoration: none;
@@ -131,12 +173,12 @@ h3 {
 }
 
 .top-container {
-  ;
+  z-index: 999;
 }
 
-.middle-container {
+/* .middle-container {
   background-color: #8eb8de;
-}
+} */
 
 .bottom-container {
   background-color: #bbdcef;
